@@ -1,5 +1,6 @@
+#! /usr/bin/env python3
 import urllib3
-import time
+import subprocess
 import os
 
 
@@ -24,3 +25,8 @@ if os.name == 'nt':    #WINDOWS system
 	print('Downloading BOINC + Virtualbox')
 	downloadFile('https://boinc.berkeley.edu/dl/boinc_7.6.22_windows_x86_64_vbox.exe')
 	#download.gridcoin.us/download/downloadstake/GridcoinResearch.msi
+elif os.name == 'posix':
+        print('Using Ubuntu System')
+        print('Downloading BOINC + Virtualbox')
+        subprocess.call('./UbuntuBoincInstall.sh')
+        

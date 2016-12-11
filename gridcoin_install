@@ -12,6 +12,7 @@ then
 	sudo apt-get install -y boinc-manager
 	sudo apt-get install -y gridcoinresearch-qt
 	sudo apt-get install -y gridcoinresearchd
+        sudo apt-get install -y virtualbox
 	sudo apt-get install -y unzip
 	sudo apt-get autoremove
 	sudo apt-get clean
@@ -22,16 +23,10 @@ then
 	mkdir ~/.BOINC
 	touch ~/.BOINC/mine_gridcoin
 	echo '#! /usr/bin/env bash
-#This file makes sure that gridcoin and boinc are running on the computer.
+#This file makes sure that gridcoin is running on the computer.
 while true 
 do
         sleep 90
-        if [[ $(pgrep boincmgr) != "" ]]
-        then
-              cd $(pwd)  
-        else
-                boincmgr </dev/null &>/dev/null &
-        fi
         if [[ $(pgrep "gridcoinresearch*") != "" ]]
         then
                 cd $(pwd)
@@ -57,32 +52,7 @@ else
 	sudo apt-get upgrade
 	sudo apt-get install -y boinc-client
 	sudo apt-get install -y boinc-manager
+        sudo apt-get install -y virtualbox
 	sudo apt-get autoremove
-	sudo apt get clean
-	mkdir ~/.BOINC
-	echo '#! /usr/bin/env bash
-#This file makes sure that gridcoin and boinc are running on the computer.
-while true 
-do
-        sleep 90
-        if [[ $(pgrep boincmgr) != "" ]]
-        then
-              cd $(pwd)  
-        else
-                boincmgr </dev/null &>/dev/null &
-        fi
-done' >> ~/.BOINC/mine_gridcoin
-	sudo chmod +x ~/.BOINC/mine_gridcoin
-	mkdir ~/.config
-	mkdir ~/.config/autostart
-	echo "[Desktop Entry]
-Type=Application
-Exec=~/.BOINC/mine_gridcoin
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
-Name[en_US]=Gridcoin Mining
-Name=Gridcoin
-Comment[en_US]=Mine Gridcoin 
-Comment=Mine Gridcoin" >> /home/$(whoami)/.config/autostart/mine.desktop
+	sudo apt-get clean
 fi
