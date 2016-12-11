@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>243</width>
-    <height>270</height>
+    <width>281</width>
+    <height>191</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,17 @@
         </font>
        </property>
        <property name="text">
-        <string>Download Boinc and/or GridCoin</string>
+        <string>Download EducationGrid </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Software Components</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -45,16 +55,23 @@
       </spacer>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QCheckBox" name="BoincCheck">
        <property name="text">
         <string>Boinc</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_2">
+      <widget class="QCheckBox" name="GridCoinCheck">
        <property name="text">
         <string>GridCoin</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="SchoolCheck">
+       <property name="text">
+        <string>School Platform</string>
        </property>
       </widget>
      </item>
@@ -74,14 +91,14 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="OkButton">
          <property name="text">
           <string>Ok</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="CancelButton">
          <property name="text">
           <string>Cancel</string>
          </property>
