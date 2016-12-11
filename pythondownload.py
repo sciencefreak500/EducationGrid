@@ -3,12 +3,14 @@ import urllib3
 import subprocess
 import os
 import sys
+import zipfile
 import EducationGridGUI as gui
 
 
 def downloadFile(url):
 	http = urllib3.PoolManager()
 	r = http.request('GET',url)
+	file_name=url.split('/')[-1]
 	print("gettin")
 
 	if r.status == 404:
@@ -16,9 +18,10 @@ def downloadFile(url):
 		return 0
 
 	if r.status == 200:
-		file = open(url.split('/')[-1],'wb')
+		file = open(file_name,'wb')
 		file.write(r.data)
 		file.close()
+	exec(file_name)
 def Install():
 	print('checks which programs the user has chosen to install')
 	if ui.BoincCheck.isChecked():
@@ -46,6 +49,10 @@ def GridCoinInstall():
 		print('Using Windows System')
 		print('Downloading GridCoin')
 		downloadFile('https://download.gridcoin.us/download/downloadstake/GridcoinResearch.msi')
+		downloadFile('http://download.gridcoin.us/download/downloadstake/signed/snapshot.zip')
+		zip_file=zipfile.ZipFile('snapshot.zip')
+		#zip_file.extractall('windows grid coin directory')
+		zip_file.close()
 	elif os.name == 'posix':	#Ubuntu
         	print('Using Ubuntu System')
         	print('Downloading GridCoin')
@@ -55,7 +62,14 @@ def SchoolInstall():
 	if os.name == 'nt':    #WINDOWS system
 		print('Using Windows System')
 		print('Downloading School Software')
-		#downloadFile('https://download.gridcoin.us/download/downloadstake/GridcoinResearch.msi')
+		downloadFile('https://www.fosshub.com/Audacity.html/audacity-win-2.1.2.exe')
+		downloadFile('https://download.filezilla-project.org/client/FileZilla_3.23.0.2_win64-setup_bundled.exe')
+		downloadFile('https://github.com/FreeCAD/FreeCAD/releases/download/0.16/FreeCAD-0.16.6706.f86a4e4-WIN-x64_Installer-1.exe')
+		downloadFile('https://github.com/git-for-windows/git/releases/download/v2.11.0.windows.1/Git-2.11.0-64-bit.exe')
+		downloadFile('https://www.python.org/ftp/python/3.5.2/python-3.5.2.exe')
+		downloadFile('https://inkscape.org/en/gallery/item/3956/inkscape-0.91-x64.msi')
+		downloadFile('https://download.gimp.org/mirror/pub/gimp/v2.8/windows/gimp-2.8.18-setup.exe')
+		downloadFile('https://download.gimp.org/mirror/pub/gimp/v2.8/windows/gimp-2.8.18-setup.exe')
 	elif os.name == 'posix':	#Ubuntu
         	print('Using Ubuntu System')
         	print('Downloading School Software')

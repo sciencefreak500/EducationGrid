@@ -10,8 +10,6 @@ gksudo apt-get -y upgrade
 gksudo apt-get install -y wine
 gksudo apt-get install -y oracle-java8-installer
 gksudo apt-get install -y vlc
-gksudo apt-get install -y android-tools-adb
-gksudo apt-get install -y android-tools-fastboot
 gksudo apt-get install -y audacity
 gksudo apt-get install -y python-software-properties
 gksudo apt-get install -y synaptic
