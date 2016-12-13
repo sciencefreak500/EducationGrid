@@ -32,7 +32,7 @@ def downloadFile(url):
 		file.write(r.data)
 		file.close()
 
-	exec(file_name)
+	subprocess.call(file_name)
 def Install():
 	print('checks which programs the user has chosen to install')
 	if ui.BoincCheck.isChecked():
