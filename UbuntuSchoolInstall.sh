@@ -9,6 +9,9 @@ gksudo apt-get update
 gksudo apt-get -y upgrade
 gksudo apt-get install -y wine
 gksudo apt-get install -y oracle-java8-installer
+wget 'https://notepad-plus-plus.org/repository/7.x/7.2.2/npp.7.2.2.Installer.x64.exe'
+wine npp.7.2.2.Installer.x64.exe
+rm npp.7.2.2.Installer.x64.exe
 gksudo apt-get install -y vlc
 gksudo apt-get install -y audacity
 gksudo apt-get install -y python-software-properties
@@ -31,4 +34,5 @@ gksudo apt-get install -y inkscape
 gksudo apt-get install -y qt4-designer
 gksudo apt-get install -y gimp
 gksudo apt-get install -y arduino
+gksudo apt-get install -y kdenlive
 notify-send 'Done Installing School Software'

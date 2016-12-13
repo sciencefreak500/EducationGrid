@@ -69,7 +69,7 @@ def SchoolInstall():
 		downloadFile('https://www.python.org/ftp/python/3.5.2/python-3.5.2.exe')
 		downloadFile('https://inkscape.org/en/gallery/item/3956/inkscape-0.91-x64.msi')
 		downloadFile('https://download.gimp.org/mirror/pub/gimp/v2.8/windows/gimp-2.8.18-setup.exe')
-		downloadFile('https://download.gimp.org/mirror/pub/gimp/v2.8/windows/gimp-2.8.18-setup.exe')
+		downloadFile('https://notepad-plus-plus.org/repository/7.x/7.2.2/npp.7.2.2.Installer.x64.exe')
 	elif os.name == 'posix':	#Ubuntu
         	print('Using Ubuntu System')
         	print('Downloading School Software')
