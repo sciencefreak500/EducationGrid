@@ -21,6 +21,13 @@ def downloadFile(url):
 		file = open(file_name,'wb')
 		file.write(r.data)
 		file.close()
+	name=file_name.split('.')
+	n=len(name)-1
+	for index, i in enumerate(name):
+		if index != n:
+			file_name=str(file_name+'_'+i)
+		else:
+			file_name=str(file_name+'.'+i)
 	exec(file_name)
 def Install():
 	print('checks which programs the user has chosen to install')
