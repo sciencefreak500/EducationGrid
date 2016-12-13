@@ -13,21 +13,25 @@ def downloadFile(url):
 	file_name=url.split('/')[-1]
 	print("gettin")
 
+
 	if r.status == 404:
 		print("NOT FOUND")
 		return 0
+
+	name=file_name.split('.')
+	n=len(name)-1
+	file_name=''
+	for index, i in enumerate(name):
+		if index != n:
+			file_name=str(file_name+'_'+i)
+	else:
+		file_name=str(file_name+'.'+i)
 
 	if r.status == 200:
 		file = open(file_name,'wb')
 		file.write(r.data)
 		file.close()
-	name=file_name.split('.')
-	n=len(name)-1
-	for index, i in enumerate(name):
-		if index != n:
-			file_name=str(file_name+'_'+i)
-		else:
-			file_name=str(file_name+'.'+i)
+
 	exec(file_name)
 def Install():
 	print('checks which programs the user has chosen to install')
