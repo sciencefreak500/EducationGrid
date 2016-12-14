@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
+#This file contains the functions to the gui in order to install any and all components of the EducationGrid for Windows and Ubuntu systems.
 import requests
 import subprocess
 import os
 import sys
-import zipfile
 import EducationGridGUI as gui
 
 
@@ -51,10 +51,6 @@ def GridCoinInstall():
 		print('Using Windows System')
 		print('Downloading GridCoin')
 		downloadFile('https://download.gridcoin.us/download/downloadstake/GridcoinResearch.msi')
-		downloadFile('http://download.gridcoin.us/download/downloadstake/signed/snapshot.zip')
-		zip_file=zipfile.ZipFile('snapshot.zip')
-		#zip_file.extractall('windows grid coin directory')
-		zip_file.close()
 	elif os.name == 'posix':	#Ubuntu
         	print('Using Ubuntu System')
         	print('Downloading GridCoin')
