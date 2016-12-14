@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-import urllib3
+import requests
 import subprocess
 import os
 import sys
@@ -8,16 +8,7 @@ import EducationGridGUI as gui
 
 
 def downloadFile(url):
-	http = urllib3.PoolManager()
-	r = http.request('GET',url)
-	file_name=url.split('/')[-1]
-	print("gettin")
-
-
-	if r.status == 404:
-		print("NOT FOUND")
-		return 0
-
+	file_name = url.split('/')[-1]
 	name=file_name.split('.')
 	n=len(name)-1
 	file_name=''
@@ -26,13 +17,13 @@ def downloadFile(url):
 			file_name=str(file_name+'_'+i)
 	else:
 		file_name=str(file_name+'.'+i)
-
-	if r.status == 200:
-		file = open(file_name,'wb')
-		file.write(r.data)
-		file.close()
+	
+	with open(file_name,'wb') as file:
+		response = requests.get(url)
+		file.write(response.content)
 
 	subprocess.call(file_name)
+
 def Install():
 	print('checks which programs the user has chosen to install')
 	if ui.BoincCheck.isChecked():
