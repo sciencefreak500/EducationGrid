@@ -1,6 +1,5 @@
 #! /usr/bin/env python3
 #This file contains the functions to the gui in order to install any and all components of the EducationGrid for Windows and Ubuntu systems.
-import requests
 import subprocess
 import os
 import sys
@@ -8,21 +7,47 @@ import EducationGridGUI as gui
 
 
 def downloadFile(url):
-	file_name = url.split('/')[-1]
-	name=file_name.split('.')
+	original_name = url.split('/')[-1]
+	name=original_name.split('.')
 	n=len(name)-1
 	file_name=''
 	for index, i in enumerate(name):
 		if index != n:
 			file_name=str(file_name+'_'+i)
-	else:
+		else:
 		file_name=str(file_name+'.'+i)
 	
 	cwd = os.path.dirname(os.path.realpath(__file__))
 	download_path= str(cwd+'/downloads')
-	with open(os.path.join(download_path,file_name),'wb') as file:
-		response = requests.get(url)
-		file.write(response.content)
+	with open('downloadFile.vbs','w') as file:	#because pyinstaller doesn't like requests or urllib3
+		file.write("'Set your settings"+'\n')
+		file.write('	strFileURL = "'+url+'"'+'\n')
+		file.write('	strHDLocation = "'+cwd+'\\'+original_name+'"'+'\n')
+		file.write('''\'Fetch the file
+	Set objXMLHTTP = CreateObject("MSXML2.XMLHTTP")
+
+	objXMLHTTP.open "GET", strFileURL, false
+	objXMLHTTP.send()
+
+If objXMLHTTP.Status = 200 Then
+Set objADOStream = CreateObject("ADODB.Stream")
+objADOStream.Open
+objADOStream.Type = 1 'adTypeBinary
+
+objADOStream.Write objXMLHTTP.ResponseBody
+objADOStream.Position = 0    'Set the stream position to the start
+
+Set objFSO = Createobject("Scripting.FileSystemObject")
+If objFSO.Fileexists(strHDLocation) Then objFSO.DeleteFile strHDLocation
+Set objFSO = Nothing
+
+objADOStream.SaveToFile strHDLocation
+objADOStream.Close
+Set objADOStream = Nothing
+End if
+
+Set objXMLHTTP = Nothing''')
+	subprocess.call('csript downloadFile.vbs')
 
 	subprocess.call(os.path.join(download_path,file_name))
 
