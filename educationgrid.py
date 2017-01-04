@@ -1,7 +1,6 @@
 #! /usr/bin/env python3
 #This file contains the functions to the gui in order to install any and all components of the EducationGrid for Windows and Ubuntu systems.
 import subprocess
-import os
 import sys
 import EducationGridGUI as gui
 import urllib.request
@@ -38,27 +37,34 @@ def Install():
 		
 
 def BoincInstall():
-	if os.name == 'nt':    #WINDOWS system
+	if sys.platform == 'win32':    #WINDOWS system
 		print('Using Windows System')
 		print('Downloading BOINC + Virtualbox')
 		downloadFile('https://boinc.berkeley.edu/dl/boinc_7.6.22_windows_x86_64_vbox.exe')
-	elif os.name == 'posix':	#Ubuntu
+	elif sys.platform == 'linux':	#Ubuntu
 		print('Using Ubuntu System')
 		print('Downloading BOINC + Virtualbox')
 		subprocess.call('./UbuntuBoincInstall.sh')
+	elif sys.platform == 'darwin':	#Mac
+		print('Using Mac System')
+		print('Downloading BOINC + Virtualbox')
+		downloadFile('https://boinc.berkeley.edu/dl/boinc_7.6.33_macOSX_x86_64.zip')
 
 def GridCoinInstall():
-	if os.name == 'nt':    #WINDOWS system
+	if sys.platform == 'win32':    #WINDOWS system
 		print('Using Windows System')
 		print('Downloading GridCoin')
 		downloadFile('https://download.gridcoin.us/download/downloadstake/GridcoinResearch.msi')
-	elif os.name == 'posix':	#Ubuntu
+	elif sys.platform == 'linux':	#Ubuntu
         	print('Using Ubuntu System')
         	print('Downloading GridCoin')
         	subprocess.call('./UbuntuGridCoinInstall.sh')
+	elif sys.platform == 'darwin':	#Mac
+		print('Using Mac System')
+		print('Downloading GridCoin')
 
 def SchoolInstall():
-	if os.name == 'nt':    #WINDOWS system
+	if sys.platform == 'win32':    #WINDOWS system
 		print('Using Windows System')
 		print('Downloading School Software')
 		downloadFile('https://www.fosshub.com/Audacity.html/audacity-win-2.1.2.exe')
@@ -72,11 +78,15 @@ def SchoolInstall():
 		downloadFile('downloads.sourceforge.net/project/pyqt/PyQt4/PyQt-4.11.4/PyQt4-4.11.4-gpl-Py3.4-Qt4.8.7-x64.exe?r=&ts=1481742484&use_mirror=pilotfiber')
 		downloadFile('download.arduino.org/IDE/1.7.11/arduino-1.7.11.org-windows.exe')
 		downloadFile('mirror.cs.umn.edu/blender.org/release/Blender2.78/blender-2.78a-windows64.msi')
+		downloadFile('download.virtualbox.org/virtualbox/5.0.30/VirtualBox-5.0.30-112061-Win.exe')
 		#downloadFile('https://bootstrap.pypa.io/get-pip.py')
-	elif os.name == 'posix':	#Ubuntu
+	elif sys.platform == 'linux':	#Ubuntu
         	print('Using Ubuntu System')
         	print('Downloading School Software')
         	subprocess.call('./UbuntuSchoolInstall.sh')
+	elif sys.platform == 'darwin':	#Mac
+		print('Using Mac System')
+		print('DOwnloading School SOftware')
 
 
 def EndProgram():
