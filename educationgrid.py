@@ -86,7 +86,7 @@ def SchoolInstall():
         	subprocess.call('./UbuntuSchoolInstall.sh')
 	elif sys.platform == 'darwin':	#Mac
 		print('Using Mac System')
-		print('DOwnloading School SOftware')
+		print('DOwnloading School Software')
 
 
 def EndProgram():
