@@ -34,5 +34,5 @@ gksudo apt-get install -y inkscape
 gksudo apt-get install -y qt4-designer
 gksudo apt-get install -y gimp
 gksudo apt-get install -y arduino
-gksudo apt-get install -y kdenlive
+gksudo apt-get install -y blender
 notify-send 'Done Installing School Software'

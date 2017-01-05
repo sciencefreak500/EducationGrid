@@ -41,6 +41,7 @@ def BoincInstall():
 		print('Using Windows System')
 		print('Downloading BOINC + Virtualbox')
 		downloadFile('https://boinc.berkeley.edu/dl/boinc_7.6.22_windows_x86_64_vbox.exe')
+		downloadFile('download.virtualbox.org/virtualbox/5.0.30/VirtualBox-5.0.30-112061-Win.exe')
 	elif sys.platform == 'linux':	#Ubuntu
 		print('Using Ubuntu System')
 		print('Downloading BOINC + Virtualbox')
@@ -49,6 +50,7 @@ def BoincInstall():
 		print('Using Mac System')
 		print('Downloading BOINC + Virtualbox')
 		downloadFile('https://boinc.berkeley.edu/dl/boinc_7.6.33_macOSX_x86_64.zip')
+		downloadFile('download.virtualbox.org/virtualbox/5.1.12/VirtualBox-5.1.12-112440-OSX.dmg')
 
 def GridCoinInstall():
 	if sys.platform == 'win32':    #WINDOWS system
@@ -86,7 +88,22 @@ def SchoolInstall():
         	subprocess.call('./UbuntuSchoolInstall.sh')
 	elif sys.platform == 'darwin':	#Mac
 		print('Using Mac System')
-		print('DOwnloading School Software')
+		print('Downloading School Software')
+		downloadFile('https://www.fosshub.com/Audacity.html/audacity-macosx-ub-2.1.2.dmg')
+		downloadFile('https://download.filezilla-project.org/client/FileZilla_3.23.0.2_macosx-x86_setup_bundled.zip')
+		downloadFile('https://github.com/FreeCAD/FreeCAD/releases/download/0.17_pre/FreeCAD_0.17-9524.109f869-OSX-x86_64.dmg')
+		downloadFile('downloads.sourceforge.net/project/git-osx-installer/git-2.10.1-intel-universal-mavericks.dmg?r=&ts=1483552667&use_mirror=kent')
+		downloadFile('https://inkscape.org/en/gallery/item/3896/Inkscape-0.91-1-x11-10.7-x86_64.dmg')
+		downloadFile('https://dl.bintray.com/xquartz/downloads/XQuartz-2.7.11.dmg')	#Dependency for inkscape and wine
+		downloadFile('javadl.oracle.com/webapps/download/AutoDL?BundleId=216425')	#Java
+		downloadFile('downloads.sourceforge.net/project/darwine/wine/wine-1.7.0%20.dmg?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fdarwine%2F&ts=1483639173&use_mirror=freefr')	#Wine
+		downloadFile('https://download.gimp.org/mirror/pub/gimp/v2.8/osx/gimp-2.8.18-x86_64-1.dmg')
+		downloadFile('https://notepad-plus-plus.org/repository/7.x/7.2.2/npp.7.2.2.Installer.x64.exe')
+		downloadFile('downloads.sourceforge.net/project/pyqtx/Complete/PyQtX%2B_py323_q482_pyqt494.pkg.mpkg2.zip?r=&ts=1483637607&use_mirror=heanet')
+		downloadFile('ftp.nluug.nl/pub/graphics/blender/release/Blender2.78/blender-2.78a-OSX_10.6-x86_64.zip')
+		downloadFile('download.virtualbox.org/virtualbox/5.1.12/VirtualBox-5.1.12-112440-OSX.dmg')
+		downloadFile('Arduino')	#Arduino needed
+
 
 
 def EndProgram():
