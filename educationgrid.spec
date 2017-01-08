@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['educationgrid.py'],
-             pathex=['C:\\EducationGRC\\EducationGrid'],
+             pathex=['C:\\Users\\Milord\\Desktop\\BoincInstaller\\EducationGrid'],
              binaries=None,
              datas=None,
              hiddenimports=[],
